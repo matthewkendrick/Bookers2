@@ -1,9 +1,35 @@
 <div class="container px-5 px-sm-0">
   <div class="row">
     <div class="col-md-3">
+<<<<<<< HEAD
     <%# User info %>
       <%= render 'users/user', user: @user, book: @book %>
             
+=======
+      <h2>User info</h2>
+      <% if @user.profile_image.attached? %>
+        <%= image_tag @user.profile_image, size: "100x100" %>
+      <% else %>
+        <%= image_tag 'no_image', size: "100x100" %>
+      <% end %>
+      <table class="table">
+        <tbody>
+          <tr>
+            <th><h4>name</h4></th>
+            <th><p><%= @user.name %></p></th>
+          </tr>
+          <tr>
+            <th><h4>introduction</h4></th>
+            <th><p><%= @user.introduction %></p></th>
+          </tr>
+        </tbody>
+      </table>
+
+      <%= link_to edit_user_path(@user.id), class: "btn btn-out-line-secondary btn-block" do %>
+        <i class="fas fa-user-cog"></i>
+      <% end %>
+      
+>>>>>>> 8736e3af9927125844a06e37ac0917a3629956e8
       <h2>New Book</h2>
       <%= form_with model: @book, local:true do |f| %>
         <h4>Title</h4>
