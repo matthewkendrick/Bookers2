@@ -2,8 +2,7 @@
   <div class="row">
     <div class="col-md-3">
       <%# User info %>
-<<<<<<< HEAD
-      <%= render 'bools/user' %>
+      <%= render 'books/user' %>
       <%# New Book %>
       <%= render 'books/new', book: @book %>
     </div>
@@ -13,8 +12,7 @@
         <tbody>
           <tr>
             <td>
-              <%= link_to "", user_path(@user.id) do %>
-                <%= render 'books/user' %>
+              <%= link_to user_path(@user.id) do %>
                 <%= @user.name %>
               <% end %>
             </td>
@@ -24,16 +22,10 @@
             <td><%= @book.body %></td>
             <% if @book.user_id == current_user.id %>
               <td><%= link_to "Edit", edit_book_path(@book), class: "btn btn-sm btn-success" %></td>
-              <td><%= link_to "Destroy", book_path(@book), method: :delete, data: {confirm: '本当に削除しますか?'} class: "btn btn-sm btn-danger" %></td>
+              <td><%= link_to "Destroy", book_path(@book), method: :delete, data: {confirm: '本当に削除しますか?'}, class: "btn btn-sm btn-danger" %></td>
             <% end %>
           </tr>
         </tbody>
       </table>
     </div>
-=======
-      <%# New Book %>
-      <%= render 'books/new', book: @book %>
-    </div>
->>>>>>> 41ffc2fe1752d3c1e5cf3db085e4cc5814e537b5
-  </div>
 </div>

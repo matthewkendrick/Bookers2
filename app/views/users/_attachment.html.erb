@@ -1,9 +1,5 @@
 <% if @user.profile_image.attached? %>
-<<<<<<< HEAD
   <%= image_tag @user.profile_image, size: "100x100" %>
-=======
-  <%= image_tag user.profile_image, size: "100x100" %>
->>>>>>> 41ffc2fe1752d3c1e5cf3db085e4cc5814e537b5
 <% else %>
   <%= image_tag 'no_image', size: "100x100" %>
 <% end %>

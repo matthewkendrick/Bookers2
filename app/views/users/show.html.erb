@@ -22,11 +22,7 @@
           <% user = User.find(book.user_id) %>
             <tr>
               <td>
-<<<<<<< HEAD
                 <%= link_to user_path(user.id) do %>
-=======
-                <%= link_to @user.profile_path(book.user_id) do %>
->>>>>>> 41ffc2fe1752d3c1e5cf3db085e4cc5814e537b5
                   <%= render 'users/attachment' %>
                 <% end %><br>
               </td>
