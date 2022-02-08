@@ -55,6 +55,13 @@
       </nav>
     </header>
     <main class="mb-auto">
+      <% if flash[:notice] %>
+        <% flash.each do |key, msg| %>
+        <p id="notice"><%= msg %></p>
+        <% end %>
+      <% else %>
+        <p id="notice"></p>
+      <% end %>
       <%= yield %>
     </main>
     <footer class="">
