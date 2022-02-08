@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def create
-    @user = User.new(user_patams)
+    @user = User.new(user_params)
     if @user.save
       redirect_to user_path, success: 'Welcome! You have signed up successfully.'
     else
@@ -10,32 +10,30 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @books = @user.books
+    @books = @user.books.order(updated_at: :asc)
     @book = Book.new
   end
 
   def index
-    @users = User.all
+    @users = User.all.order(updaated_at: :asc)
     @book = Book.new
-    @user = current_user
+    @user = User.find(current_user.id)
   end
 
   def update
     @user = User.find(params[:id])
     @books = Book.all
-    if @user.update(user_arams)
-      redirect_to user_path(@user.id)
+    if @user.update(user_params)
+      redirect_to user_path(@user.id), notice: "You have updated user successfully."
     else
-      render :edit
+      render "user/edit"
     end
   end
 
   def edit
     @user = User.find(params[:id])
-    if @user == current_user
-      render :edit
-    else
-      redirect_to current_user
+    if @user != current_user
+      redirect_to(current_user.id) 
     end
   end
 
