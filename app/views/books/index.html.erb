@@ -34,7 +34,7 @@
               <% user = User.find(book.user_id) %>
               <tr>
                 <td>
-                  <%= link_to user_path(user.id) do %>
+                  <%= link_to user_path(book.user) do %>
                     <%= render 'books/attachment' %>
                   <% end %>
                 </td>

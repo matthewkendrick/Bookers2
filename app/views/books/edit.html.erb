@@ -7,7 +7,7 @@
           <% if @book.errors.count == 1 %>
            <h3><%= @book.errors.count %> error prohibited this obj from being saved:</h3>
           <% else %>
-            <h3><%= @book.errors.count %> error prohibited this obj from being saved:</h3>
+            <h3><%= @book.errors.count %> errors prohibited this obj from being saved:</h3>
           <% end %>
           <ul>
             <% @book.errors.full_message.each do |message| %>

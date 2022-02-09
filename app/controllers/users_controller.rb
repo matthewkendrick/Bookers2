@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all.order(updaated_at: :asc)
+    @users = User.all.order(updated_at: :asc)
     @book = Book.new
     @user = User.find(current_user.id)
   end
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to user_path(@user.id), notice: "You have updated user successfully."
     else
-      render "user/edit"
+      render "users/edit"
     end
   end
 
