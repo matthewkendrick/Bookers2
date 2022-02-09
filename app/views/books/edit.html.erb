@@ -4,34 +4,31 @@
       <h1>Editing Book</h1>
       <div id="error_explanation">
         <% if @book.errors.any? %>
-          <% if @book.errors.count == 1 %>
-           <h3><%= @book.errors.count %> error prohibited this obj from being saved:</h3>
-          <% else %>
-            <h3><%= @book.errors.count %> errors prohibited this obj from being saved:</h3>
-          <% end %>
+          <h3><%= @book.errors.count %> errors prohibited this obj from being saved:</h3>   
           <ul>
-            <% @book.errors.full_message.each do |message| %>
-              <li class=""><%= message %></li> 
+            <% @book.errors.full_messages.each do |message| %>
+             <li><%= message %></li> 
             <% end %>
           </ul>
         <% end %>
       </div>
-        <%= form_with model: @book, local:true do |f| %>
-          <div class="form-group">
-            <label for="inputTitle">Title</label><br>
-             <%= f.text_field :title, class:"form-control book_title" %><br>
-          </div>
-          <div class="form-group">
-            <label for="inputbody">Opinion</label><br>
-             <%= f.text_area :body, class:"form-control book_body" %><br>
-          </div>
-          <div class="form-group">
-             <%= f.submit "Update Book", class:"btn btn-seccess" %><br>
-          </div>
-        <% end %>
-        <%= link_to "Show", book_path(@book.id) %>
-        |
-        <%= link_to "Back", books_path %>
+      <%= form_with model: @book, local:true do |f| %>
+        <div class="form-group">
+          <%= f.label :Title %>
+          <%= f.text_field :title, class: 'form-control book_title' %>
+        </div>
+TODO(ここから確認作業を再開する)
+        <div class="form-group">
+          <label for="inputbody">Opinion</label><br>
+            <%= f.text_area :body, class:"form-control book_body" %><br>
+        </div>
+        <div class="form-group">
+            <%= f.submit "Update Book", class:"btn btn-seccess" %><br>
+        </div>
+      <% end %>
+      <%= link_to "Show", book_path(@book.id) %>
+      |
+      <%= link_to "Back", books_path %>
     </div>
   </div>
 </div>

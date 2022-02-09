@@ -1,2 +1,10 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+div.field, div.action {
+  margin-bottom: 10px;
+}
+
+#notice {
+  color: green;
+}
