@@ -1,3 +1,4 @@
+<%# NOTE(books_edit Confirmed) %>
 <div class="container">
   <div class="row">
     <div class="col-sm-2 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
@@ -17,18 +18,17 @@
           <%= f.label :Title %>
           <%= f.text_field :title, class: 'form-control book_title' %>
         </div>
-TODO(ここから確認作業を再開する)
         <div class="form-group">
           <label for="inputbody">Opinion</label><br>
             <%= f.text_area :body, class:"form-control book_body" %><br>
         </div>
         <div class="form-group">
-            <%= f.submit "Update Book", class:"btn btn-seccess" %><br>
+            <%= f.submit 'Update Book', class:"btn btn-seccess" %><br>
         </div>
       <% end %>
-      <%= link_to "Show", book_path(@book.id) %>
-      |
-      <%= link_to "Back", books_path %>
+      <%= link_to 'Show', book_path(@book.id) %>
+      <span>|</span>
+      <%= link_to 'Back', '/books' %>
     </div>
   </div>
 </div>
