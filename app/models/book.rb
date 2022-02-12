@@ -1,4 +1,3 @@
-# NOTE(model_book Confirmed)
 class Book < ApplicationRecord
   belongs_to :user
 

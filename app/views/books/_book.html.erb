@@ -1,17 +1,23 @@
-  <%# NOTE(New Book template Confirmed) %>
   <%# Books New Action %>
-  <h2>New Book</h2>
-  <%= form_with model: book, local:true do |f| %>
+  <h2>New book</h2>
+  <% if @new_book.errors.any? %>
+    <p><%= @new_book.errors.count %> errors ptohibited this book from being saved:</p>
+    <ul>
+      <% @new_book.errors.full_messages.each do |message| %>
+        <li class=""><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <%= form_with model: @new_book, method: :post, local:true do |f| %>
     <div class="form-group">
       <%= f.label :Title %>
       <%= f.text_field :title, class: 'form-control book_title' %>
     </div>
-
     <div class="form-group">
       <%= f.label :Opinion %>
       <%= f.text_area :body, class: 'form-control book_body' %>
     </div>
-    <div class="form-group">
-       <%= f.submit 'Create Book', class: 'btn btn-success' %>
+    <div class="actions mt-3">
+      <input type="submit" name="commit" value="Create Book" class="btn btn-success"></input>
     </div>
   <% end %>
